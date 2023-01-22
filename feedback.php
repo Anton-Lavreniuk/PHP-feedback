@@ -1,12 +1,15 @@
 <?php include 'inc/header.php'; ?>
 
 <?php
+    //Connect to the database and retrieve feedback
     $sql = 'SELECT * FROM feedback';
+    //$conn is included in the database.php file, which is included in the header.php
     $result = mysqli_query($conn, $sql);
     $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-        <h2>Past Feedback</h2>
+        <h2>What our users say</h2>
         <?php
+        //If no feedback is available
         if(empty($feedback)):
 
         ?><p class="text-danger">No Feedback!</p>
